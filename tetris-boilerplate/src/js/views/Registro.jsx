@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 
 const Registro = () => {
     return(
-        <Form className="container w-50">
+        <Form className="container">
           <Form.Group className="m-3" controlId="formBasicEmail">
             <h3>Formulario de Registro</h3>
             <Form.Label className="mt-4">Introduce una direccion de correo:</Form.Label>

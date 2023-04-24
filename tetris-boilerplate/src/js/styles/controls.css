@@ -8,4 +8,23 @@
     margin:auto;
     display: flex;
     margin-block: 10px;
+    align-items: center;
+}
+
+
+
+.col-6 button{
+    height: 50px;
+    min-width: 200px;
+}
+
+.bgm-button{
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.opciones-controles button{
+    height: 50px;
+    width: 250px;
 }

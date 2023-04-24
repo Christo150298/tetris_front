@@ -6,16 +6,13 @@ import Layout from "../layout/Layout";
 import Login from "../views/Login";
 import Registro from "../views/Registro";
 import Instrucciones from "../views/Instrucciones";
+import Chat from "../server/Chat";
 import Controls from "../components/Controls";
 
 const routes = [
   {
     path: "/",
     element: <Home />
-  },
-  {
-    path:"/options",
-    element:<Options />
   },
   {
     path:"/login",
@@ -30,8 +27,19 @@ const routes = [
     element:<Instrucciones />
   },
   {
-    path:"/controles",
-    element:<Controls/>
+    path:"/chat",
+    element:<Chat />
+  },
+  {
+    path:"/options/",
+    children:[{
+        path: "/options/",
+        element: <Options />
+      },
+      {
+        path:"/options/controls",
+        element:<Controls/>
+      }]
   }
 ]
 
