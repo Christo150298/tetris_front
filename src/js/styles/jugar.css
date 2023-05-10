@@ -1,0 +1,17 @@
+.jugar-styles {
+    width: 55rem;
+    height: 38rem;
+    background-image: url("https://e1.pxfuel.com/desktop-wallpaper/1014/142/desktop-wallpaper-tetris-style-tetris.jpg");
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+button.btn.btn-dark{
+    border: 2px solid rgb(31, 23, 23);
+    width: 12rem;
+    height: 4rem;
+    border-radius: 5px;
+    font-size: large;
+    margin: 5px;
+}

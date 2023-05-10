@@ -1,0 +1,15 @@
+div.nes-container.is-dark.with-title > .title {
+    color: #EC7063;
+    font-size: large;
+}
+
+div.nes-container.is-dark{
+    margin: auto;
+}
+
+p {
+    color: #73C6B6 ;
+    font-size: 14px;
+    text-align: justify;
+}
+

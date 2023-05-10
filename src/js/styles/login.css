@@ -1,0 +1,17 @@
+.passwordForgot {
+    color: #0bc999;
+    cursor: pointer;
+}
+
+input.form-control {
+    width: 70%;
+}
+
+.login-styles.nes-container.is-rounded.is-dark{
+    margin: auto;
+    margin-top: 7%;
+}
+
+
+
+
