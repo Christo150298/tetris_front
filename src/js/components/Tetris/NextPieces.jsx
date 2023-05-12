@@ -41,7 +41,7 @@ const NextPieces = ({nextPieces}) => {
     return (
       <div className="next-pieces-styles">
 
-        <h5>Siguiente Pieza</h5>
+        <h6>Siguiente Pieza</h6>
         <div className="all-pieces">
           <div className="next-pieces-container mt-1">
           {
@@ -50,17 +50,17 @@ const NextPieces = ({nextPieces}) => {
           </div>
           <div className="next-pieces-container  mt-1">
           {
-            thirdPiece && thirdPiece.map(row => row.map((cell, x) => <Cell key={x} type={cell[0]} />))
+            secondPiece && secondPiece.map(row => row.map((cell, x) => <Cell key={x} type={cell[0]} />))
           }
           </div>
           <div className="next-pieces-container  mt-1">
           {
-            fourthPiece && fourthPiece.map(row => row.map((cell, x) => <Cell key={x} type={cell[0]} />))
+            thirdPiece && thirdPiece.map(row => row.map((cell, x) => <Cell key={x} type={cell[0]} />))
           }
           </div>
           <div className="next-pieces-container mt-1">
           {
-            secondPiece && secondPiece.map(row => row.map((cell, x) => <Cell key={x} type={cell[0]} />))
+            fourthPiece && fourthPiece.map(row => row.map((cell, x) => <Cell key={x} type={cell[0]} />))
           }
           </div>
         </div>
