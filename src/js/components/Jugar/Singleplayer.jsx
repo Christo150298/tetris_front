@@ -3,7 +3,7 @@ import Tetris from "../Tetris/Tetris.jsx";
 
 const Singleplayer = () => {
     return (
-        <div>
+        <div className="d-flex justify-content-center">
             <Tetris />
         </div>
     );
