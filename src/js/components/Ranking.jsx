@@ -13,10 +13,10 @@ const Ranking = () => {
             setScore(response.data.data);
           })
           .catch(error => {
-            console.log(error);
+
           });
       }, []);
-        console.log(score);
+
 
     return(
         <div className="nes-container is-dark mt-5 w-75">

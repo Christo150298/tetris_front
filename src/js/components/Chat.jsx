@@ -1,19 +1,21 @@
-import React, { useMemo }  from "react";
+import React, { useEffect, useMemo }  from "react";
 import "../styles/chat.css"
 import useSocket from "../hooks/useSocket";
 import useFormInputs from "../hooks/useFormInputs";
 import useAppContext from "../store/context";
 
 
-const Chat = ({ room }) => {
+const Chat = ({ room, messages, sendMessage }) => {
   const { store, actions } = useAppContext();
   const { isUserLogged, userInfo } = store;
 
-  const chat_room = useMemo(() => `chat_${room}`, [room]);
+// useEffect(() => { 
+//   console.log(messages)
+// },[messages])
 
   const { userTextInputs, handleTextChangeInputs} = useFormInputs({
     message: "",});
-  const { messages, sendMessage } = useSocket(chat_room); 
+
 
   const handleKeyDown = (e) => {
     if (isUserLogged) return
@@ -27,23 +29,28 @@ const Chat = ({ room }) => {
       return;
     }
     handleTextChangeInputs({target:{name:"message", value:""}})
-    //socket.emit("data", userTextInputs.message);
-    sendMessage({"room":chat_room, "data": `${userInfo.user_info.nickname} : ${userTextInputs.message}`});
+
+    sendMessage({"room":room, "data": {
+      username: userInfo.user_info.nickname,
+      message: userTextInputs.message
+  }});
   };
+
+  
 
 
   return (
 
     <div className="container-chat nes-container is-dark ">
-      <div className="input-button-styles">
+      <div className="input-button-styles ">
 
         <ul className="text-danger" id="chat-box">
           {messages.map((message, ind) => {
-            return <li key={ind}>{message}</li>;
+            return <li key={ind}><strong className="text-primary">{message.username} :</strong> {message.message}</li>;
           })}
         </ul>
 
-        <footer>
+        <footer className="d-flex">
           <input disabled={!isUserLogged} className="input-chat-styles" type="text" name="message" value={isUserLogged ? userTextInputs.message : "Inicia sesion para chatear" } onChange={handleTextChangeInputs} onKeyDown={handleKeyDown} />
           <button disabled={!isUserLogged} className="bg-primary" type="button" onClick={handleSubmit} >ENVIAR</button>
         </footer>

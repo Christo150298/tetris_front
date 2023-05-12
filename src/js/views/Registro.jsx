@@ -28,9 +28,8 @@ const Registro = () => {
       password: userTextInputs.password,
     }
 
-    console.log(body)
+
     const response = await apiFetch("/api/singup", "POST", body, false)
-    console.log(response)
     if(response["message"] !== "ok"){
       alert(response["message"])
       return
