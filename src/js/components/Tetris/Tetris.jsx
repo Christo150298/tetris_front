@@ -1,10 +1,12 @@
 import React, {useEffect, useMemo, useState} from 'react';
+
 // Components
 import Stage from './Stage.jsx';
 import Display from './Display.jsx';
 import StartButton from './StartButton.jsx';
 import ModalGameOver from './ModalGameOver.jsx';
 import NextPieces from './NextPieces.jsx';
+import PauseButton from './PauseButton.jsx';
 import { checkCollision ,createStage} from '../../utils/gameHelpers';
 //Stylos componentes
 import "../../styles/Tetris/tetris.css"
@@ -126,7 +128,10 @@ const drop = () => {
   <div className='tetris-container' role="button" tabIndex="0" onKeyDown={e=> move(e)} >
     <div className='tetris-app'>
           <>
+          <div>
           <NextPieces usePlayer={usePlayer}/>
+          <PauseButton handlePause={handlePause} />
+          </div>
           <Stage stage={stage} />
           <aside>
             <Display text1="Time : " text2={timer}/>  

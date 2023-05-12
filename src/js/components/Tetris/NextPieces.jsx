@@ -9,7 +9,7 @@ const NextPieces = ({usePlayer}) => {
   
     return (
       <div className="next-pieces-styles">
-        <h5>Siguiente Pieza</h5>
+        <h6>Siguiente Pieza</h6>
         <div>
           {nextPieces.map((piece, index) => (
             <randomTetromino key={index} shape={piece.shape} color={piece.color} />
