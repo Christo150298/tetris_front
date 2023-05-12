@@ -26,7 +26,7 @@ const Tetris = ({sendStage = null, room = null}) => {
     const [gameOver, setGameOver]= useState(false);
     
     //desestructuramos 
-    const {player, updatePlayerPos, resetPlayer, playerRotate} = usePlayer();
+    const {player, updatePlayerPos, resetPlayer, playerRotate, nextPieces} = usePlayer();
     //Estado de juego para ese jugador
     const {stage, setStage, rowsCleared} = useStage(player, resetPlayer);
     const {score, setScore, rows, level, setLevel, time, handlePause,pause, handleResetTimer} = useGameStatus(rowsCleared);
@@ -129,7 +129,7 @@ const drop = () => {
   return(
   <div className='tetris-container' role="button" tabIndex="0" onKeyDown={e=> move(e)} >
     <div className='tetris-app'>
-    <NextPieces usePlayer={usePlayer}/>
+    <NextPieces nextPieces={nextPieces}/>
       <Stage stage={stage}  />
 
       <aside>

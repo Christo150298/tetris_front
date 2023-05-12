@@ -83,6 +83,6 @@ const resetPlayer = useCallback(() => {
    }
   ,[player ])
 
-  return {player, updatePlayerPos, resetPlayer, playerRotate};
+  return {player, updatePlayerPos, resetPlayer, playerRotate,nextPieces};
 }
 
