@@ -3,10 +3,13 @@ import React, {useEffect, useMemo, useState} from 'react';
 import Stage from './Stage.jsx';
 import Display from './Display.jsx';
 import StartButton from './StartButton.jsx';
+import ModalGameOver from './ModalGameOver.jsx';
+import NextPieces from './NextPieces.jsx';
 import { checkCollision ,createStage} from '../../utils/gameHelpers';
 //Stylos componentes
 import "../../styles/Tetris/tetris.css"
 import "../../styles/Tetris/tetrominos.css"
+
 //hooks
 import { usePlayer } from '../../hooks/usePlayer';
 import { useStage } from '../../hooks/useStage';
@@ -82,7 +85,6 @@ const drop = () => {
 
     if (pause) return
     if (gameOver) {
-    
       handlePause()
       // AQUI AÑADIR LOGICA PARA MANDAR EL RESULTADO AL SERVIDOR
       // console.log(score,timer,rows,level)
@@ -126,13 +128,12 @@ const drop = () => {
 
   return(
   <div className='tetris-container' role="button" tabIndex="0" onKeyDown={e=> move(e)} >
-
     <div className='tetris-app'>
-      
+    <NextPieces usePlayer={usePlayer}/>
       <Stage stage={stage}  />
-      
+
       <aside>
-        {isUserLogged ? <Display text1="User : " text2={userInfo.user}/>  : null}
+      {isUserLogged ? <Display text1="User : " text2={userInfo.user}/>  : null}
         <Display text1="Time : " text2={timer}/>  
         <Display text1="Puntuacion : " text2={score}/>
         <Display text1="Lineas : " text2={rows}/>
@@ -142,7 +143,11 @@ const drop = () => {
         <StartButton callback={startGame} />
 
       </aside>
-     
+      <ModalGameOver restart={startGame} show={gameOver} onHide={() => setGameOver(false)} onRestart={() => {
+          setGameOver(false);
+          }}
+          score={score}
+        />
     </div>
   </div>
   );

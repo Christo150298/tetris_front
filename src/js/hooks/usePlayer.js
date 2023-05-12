@@ -67,26 +67,22 @@ const resetPlayer = useCallback(() => {
     
     return remainingPieces
    })
-  
-}, []);
+  }, []);
 
+  useEffect(()=>{
+    for(let i = 1; i<3; i++ ){
+      if (nextPieces.length >= 4){break}
+      
+      setNexpieces(res => {  
+       const new_piece = randomTetromino().shape 
+       const newNextPieces = [...res, new_piece ]
+       return newNextPieces
+      })
+    }
+    console.log(nextPieces)
+   }
+  ,[player ])
 
-useEffect(()=>{
-  for(let i = 1; i<3; i++ ){
-    if (nextPieces.length >= 4){break}
-    
-    setNexpieces(res => {  
-     const new_piece = randomTetromino().shape 
-     const newNextPieces = [...res, new_piece ]
-     return newNextPieces
-    })
-  }
-
- }
-,[player ])
-
-
-
-  return {player, updatePlayerPos, resetPlayer, playerRotate, nextPieces};
+  return {player, updatePlayerPos, resetPlayer, playerRotate};
 }
 
