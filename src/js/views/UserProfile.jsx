@@ -16,7 +16,7 @@ const UserProfile = () => {
         if(!isUserLogged) {
             navigate("/login")
         }
-        console.log(isUserLogged)
+
 
     },[isUserLogged])
 

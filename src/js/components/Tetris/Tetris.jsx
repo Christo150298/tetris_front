@@ -61,7 +61,7 @@ const drop = () => {
   } else {
     // Game Over
     if (player.pos.y < 1) {
-      console.log('GAME OVER!!!');
+
       setGameOver(true);
       setDropTime(null);
     }
@@ -82,7 +82,7 @@ const drop = () => {
 
     if (pause) return
     if (gameOver) {
-      console.log("game over")
+    
       handlePause()
       // AQUI AÑADIR LOGICA PARA MANDAR EL RESULTADO AL SERVIDOR
       // console.log(score,timer,rows,level)
@@ -118,12 +118,12 @@ const drop = () => {
 
   useEffect(()=>{
     //  Lo que hay que mandar cada vez que cambie por socket :
-    console.log(userInfo) 
+ 
     if (room == null) return
     sendStage({stage:{stage:stage, username:userInfo.user},room:room})
   },[stage])
 
-  console.log(userInfo) 
+
   return(
   <div className='tetris-container' role="button" tabIndex="0" onKeyDown={e=> move(e)} >
 

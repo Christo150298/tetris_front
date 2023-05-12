@@ -28,7 +28,6 @@ const useSocket = (room) => {
     };
 
     const handleStage = (data) => {
-      //console.log("stage recibido", data)
       setRemoteStages((prevStages) => {
         return { ...prevStages, [data.stage.username]: data.stage.stage}
       });
@@ -50,12 +49,11 @@ const useSocket = (room) => {
 
   const sendMessage = (message) => {
     if (!socket) return; 
-    //console.log(message)
     socket.emit('data', message);
   };
 
   useEffect(()=> {
-    console.log(remoteStages)
+
   }, [remoteStages])
   return { socket, messages, sendMessage,sendStage, remoteStages  };
 };

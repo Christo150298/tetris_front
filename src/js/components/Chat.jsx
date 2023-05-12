@@ -8,9 +8,10 @@ import useAppContext from "../store/context";
 const Chat = ({ room, messages, sendMessage }) => {
   const { store, actions } = useAppContext();
   const { isUserLogged, userInfo } = store;
-useEffect(() => { 
-  console.log(messages)
-},[messages])
+
+// useEffect(() => { 
+//   console.log(messages)
+// },[messages])
 
   const { userTextInputs, handleTextChangeInputs} = useFormInputs({
     message: "",});
@@ -41,7 +42,7 @@ useEffect(() => {
   return (
 
     <div className="container-chat nes-container is-dark ">
-      <div className="input-button-styles">
+      <div className="input-button-styles ">
 
         <ul className="text-danger" id="chat-box">
           {messages.map((message, ind) => {
@@ -49,7 +50,7 @@ useEffect(() => {
           })}
         </ul>
 
-        <footer>
+        <footer className="d-flex">
           <input disabled={!isUserLogged} className="input-chat-styles" type="text" name="message" value={isUserLogged ? userTextInputs.message : "Inicia sesion para chatear" } onChange={handleTextChangeInputs} onKeyDown={handleKeyDown} />
           <button disabled={!isUserLogged} className="bg-primary" type="button" onClick={handleSubmit} >ENVIAR</button>
         </footer>

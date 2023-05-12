@@ -92,3 +92,11 @@ body * {
   display: flex;
   justify-content: space-between;
 }
+
+
+.multiplayer-stage-container{
+  display:flex
+}
+.multiplayer-stage-container .tetris-stage{ 
+  scale:65%
+}

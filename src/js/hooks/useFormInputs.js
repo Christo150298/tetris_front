@@ -24,7 +24,6 @@ const useFormInputs = (firstState) => {
     }
     
     useEffect(()=>{
-        console.log(userTextInputs)
     },[userTextInputs])
 
     return({userTextInputs, handleTextChangeInputs, handleChecksChangeInputs})

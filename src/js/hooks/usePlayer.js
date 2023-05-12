@@ -81,12 +81,12 @@ useEffect(()=>{
      return newNextPieces
     })
   }
-  console.log(nextPieces)
+
  }
 ,[player ])
 
 
 
-  return {player, updatePlayerPos, resetPlayer, playerRotate};
+  return {player, updatePlayerPos, resetPlayer, playerRotate, nextPieces};
 }
 

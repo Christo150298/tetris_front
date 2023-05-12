@@ -70,7 +70,7 @@ const Mylobbys = () =>{
   
                 </div>
                 <aside className="lobby-chat">
-                    <Chat  room="searchLobby" messages={messages} sendMessage={sendMessage} />
+                    <Chat  room="Lobby" messages={messages} sendMessage={sendMessage} />
                 </aside>
             </div>
             <footer className="ranking d-flex justify-content-center">
