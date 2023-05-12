@@ -88,7 +88,7 @@ const Multiplayer = () => {
                     })
                     : <div className="d-block">
                         <div className="nes-container is-rounded is-dark">Esperando jugadores...</div> 
-                        <UseAnimations className="mx-auto" animation={loading2} size={500} strokeColor="#EC7063" />
+                            <UseAnimations className="mx-auto" animation={loading2} size={500} strokeColor="#EC7063" />
                         </div>
                     }
 
