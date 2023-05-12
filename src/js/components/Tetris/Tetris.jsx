@@ -7,16 +7,15 @@ import { checkCollision ,createStage} from '../../utils/gameHelpers';
 //Stylos componentes
 import "../../styles/Tetris/tetris.css"
 import "../../styles/Tetris/tetrominos.css"
-
-
 //hooks
 import { usePlayer } from '../../hooks/usePlayer';
 import { useStage } from '../../hooks/useStage';
 import { useInterval } from '../../hooks/useInterval';
 import { useGameStatus } from '../../hooks/useGameStatus';
 import useControls from '../../hooks/useControls.js';
+import useAppContext from '../../store/context.js';
 
-const Tetris = () => {
+const Tetris = ({sendStage = null, room = null}) => {
     const {buttonsMap} = useControls();
     //tiempo de caida que dependerá del nivel que se encuentre el jugador
     const [dropTime , setDropTime] = useState(null);
@@ -28,8 +27,9 @@ const Tetris = () => {
     //Estado de juego para ese jugador
     const {stage, setStage, rowsCleared} = useStage(player, resetPlayer);
     const {score, setScore, rows, level, setLevel, time, handlePause,pause, handleResetTimer} = useGameStatus(rowsCleared);
-  
-  //coje la direccion
+    const {store } = useAppContext()
+    const { userInfo , isUserLogged } = store;
+   //coje la direccion
   const movePlayer = dir => {
       //si no chocamos hace el movimiento y si es asi no hace nada
       if (!checkCollision(player, stage, { x:dir, y: 0})) {
@@ -118,17 +118,21 @@ const drop = () => {
 
   useEffect(()=>{
     //  Lo que hay que mandar cada vez que cambie por socket :
-    // console.log(stage)
+    console.log(userInfo) 
+    if (room == null) return
+    sendStage({stage:{stage:stage, username:userInfo.user},room:room})
   },[stage])
 
-  // console.log(stage) 
+  console.log(userInfo) 
   return(
   <div className='tetris-container' role="button" tabIndex="0" onKeyDown={e=> move(e)} >
 
     <div className='tetris-app'>
+      
       <Stage stage={stage}  />
-
+      
       <aside>
+        {isUserLogged ? <Display text1="User : " text2={userInfo.user}/>  : null}
         <Display text1="Time : " text2={timer}/>  
         <Display text1="Puntuacion : " text2={score}/>
         <Display text1="Lineas : " text2={rows}/>

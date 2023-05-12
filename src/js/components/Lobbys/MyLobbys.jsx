@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import apiFetch from "../../utils/apiFetch";
 import useFormInputs from "../../hooks/useFormInputs";
 import "../../styles/lobby.css"
+import useSocket from "../../hooks/useSocket";
+
+
 
 const Mylobbys = () =>{
     const navigate = useNavigate()
@@ -13,7 +16,7 @@ const Mylobbys = () =>{
     const { userTextInputs, handleTextChangeInputs } = useFormInputs({
         lobbyName: ""})
 
-
+    const { socket , messages , sendMessage} = useSocket("Lobby")
 
     useEffect(()=>{
         console.log(lobbyList)
@@ -67,7 +70,7 @@ const Mylobbys = () =>{
   
                 </div>
                 <aside className="lobby-chat">
-                    <Chat  room="searchLobby" />
+                    <Chat  room="searchLobby" messages={messages} sendMessage={sendMessage} />
                 </aside>
             </div>
             <footer className="ranking d-flex justify-content-center">
