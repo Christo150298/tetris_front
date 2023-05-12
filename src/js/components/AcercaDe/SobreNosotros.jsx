@@ -31,18 +31,6 @@ const SobreNosotros = () => {
                 <section className="nes-container is-dark member-card col-3">
                     <div className="profile">
                         <h5>
-                            Maria Isabel Valero
-                        </h5>
-                    </div>
-                    <div>
-                        <a href="https://github.com/meryvl" target="_blank" rel="noreferrer" aria-label="github">
-                            <i className="nes-icon github"></i>
-                        </a>
-                    </div>
-                </section>
-                <section className="nes-container is-dark member-card col-3">
-                    <div className="profile">
-                        <h5>
                             Christopher Alvarez
                         </h5>
                     </div>

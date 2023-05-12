@@ -1,10 +1,12 @@
 import React, {useEffect, useMemo, useState} from 'react';
+
 // Components
 import Stage from './Stage.jsx';
 import Display from './Display.jsx';
 import StartButton from './StartButton.jsx';
 import ModalGameOver from './ModalGameOver.jsx';
 import NextPieces from './NextPieces.jsx';
+import PauseButton from './PauseButton.jsx';
 import { checkCollision ,createStage} from '../../utils/gameHelpers';
 //Stylos componentes
 import "../../styles/Tetris/tetris.css"
@@ -129,7 +131,11 @@ const drop = () => {
   return(
   <div className='tetris-container' role="button" tabIndex="0" onKeyDown={e=> move(e)} >
     <div className='tetris-app'>
-    <NextPieces nextPieces={nextPieces}/>
+
+      <div>
+        <NextPieces nextPieces={nextPieces}/>
+        <PauseButton handlePause={handlePause} />
+      </div>
       <Stage stage={stage}  />
 
       <aside>
@@ -144,6 +150,7 @@ const drop = () => {
 
       </aside>
       <ModalGameOver restart={startGame} show={gameOver} onHide={() => setGameOver(false)} onRestart={() => {
+
           setGameOver(false);
           }}
           score={score}
