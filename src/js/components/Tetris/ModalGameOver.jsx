@@ -1,6 +1,8 @@
 import React from "react";
 import {Button, Modal} from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
+import UseAnimations from "react-useanimations";
+import twitter from "react-useanimations/lib/twitter"
 import "../../styles/Tetris/gameover.css"
 
 
@@ -18,6 +20,9 @@ const ModalGameOver = (props) => {
           </Button>
           <Button variant="dark" onClick={() => navigate('/jugar')}>
             Salir
+          </Button>
+          <Button>Compartir
+           <UseAnimations className="btn btn-primary" animation={twitter} size={50} />
           </Button>
         </Modal.Body>
       </Modal>
