@@ -1,0 +1,14 @@
+.next-pieces-styles {
+    background-color: black;
+    margin-right: 35px;
+    margin-top: 7rem;
+    border-radius: 8px;
+    height: 15rem;
+    border: 2px solid #333;
+}
+
+.next-pieces-styles > h5 {
+    color: #a33289;
+    text-align: center;
+    margin-top: 10px;
+}
