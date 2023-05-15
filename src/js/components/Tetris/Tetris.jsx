@@ -49,8 +49,8 @@ const startGame = () => {
   setDropTime(1000);
   resetPlayer();
   setGameOver(false);
-  setScore(0)
-  setLevel(0)
+  setScore(0);
+  setLevel(0);
 };
 
 const drop = () => {
