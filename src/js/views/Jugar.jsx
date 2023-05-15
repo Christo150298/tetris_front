@@ -7,12 +7,19 @@ import "../styles/jugar.css"
 const Jugar = () => {
     return(
         <div className="jugar-styles container mt-4 gap-2">
+            <div></div>
             <ButtonGroup vertical>
                 <Link to="/jugar/singleplayer">
-                    <Button variant="dark">Singleplayer</Button>
+                    <label>
+                        <button type="radio" className="nes-radio is-dark"></button>
+                        <span>Singleplayer</span>
+                    </label>
                 </Link>
                 <Link to="/jugar/multiplayer">
-                    <Button variant="dark">Multiplayer</Button>
+                    <label>
+                        <button type="radio" class="nes-radio is-dark">Multiplayer</button>
+                        <span>Multiplayer</span>
+                    </label>
                 </Link>
             </ButtonGroup>
         </div>
@@ -21,3 +28,9 @@ const Jugar = () => {
 };
 
 export default Jugar; 
+
+
+<label>
+<input type="radio" class="nes-radio is-dark" name="answer-dark" />
+<span>Singleplayer</span>
+</label>

@@ -69,11 +69,11 @@ const Mylobbys = () =>{
                     }
   
                 </div>
-                <aside className="lobby-chat">
+                <aside className="lobby-chat w-100">
                     <Chat  room="Lobby" messages={messages} sendMessage={sendMessage} />
                 </aside>
             </div>
-            <footer className="ranking d-flex justify-content-center">
+            <footer className="ranking d-flex justify-content-center mt-3">
                 
                 <button onClick={refreshLobbys}>Refresh Lobbys</button>
                 <Link to="ranking">

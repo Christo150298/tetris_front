@@ -9,18 +9,18 @@ const Lobby = ({title, players, action , createGame=false,onButton=null}) => {
            
             {
                 !createGame 
-                ?<h6 className="title">{title}</h6>
-                :<input type="text" placeholder="Crear partida" name="lobbyName" onChange={action}/>
+                ?<h6 className="title text-center">{title}</h6>
+                :<input className="lobby-name-input" type="text" placeholder="Crear partida" name="lobbyName" onChange={action}/>
             }
             
 
-            <p>{players} / 4</p>
+            <div className="text-center">{players} / 4</div>
             
             
             {
                 !createGame 
-                ?<button className="btn btn-primary" onClick={action}>Unirse</button>
-                :<button className="btn btn-primary" onClick={onButton}>Crear</button>
+                ?<button className="nes-btn is-primary" onClick={action}>Unirse</button>
+                :<button className="nes-btn is-primary" onClick={onButton}>Crear</button>
             }
 
 

@@ -11,7 +11,7 @@ import { checkCollision ,createStage} from '../../utils/gameHelpers';
 //Stylos componentes
 import "../../styles/Tetris/tetris.css"
 import "../../styles/Tetris/tetrominos.css"
-
+import apiFetch from '../../utils/apiFetch.js';
 //hooks
 import { usePlayer } from '../../hooks/usePlayer';
 import { useStage } from '../../hooks/useStage';
@@ -90,7 +90,15 @@ const drop = () => {
       handlePause()
       // AQUI AÑADIR LOGICA PARA MANDAR EL RESULTADO AL SERVIDOR
       // console.log(score,timer,rows,level)
-      
+      const body = {
+        total_score:score,
+        time: timer,
+        reached_level:level,
+        broken_rows:rows      
+      }
+      if(score != 0){
+        apiFetch("/api/user/newscore","POST",body,true)
+      }
       return}
     if (keyCode === buttonsMap.moveLeftButton.keyCode) {
       movePlayer(-1); //mueve a la izquierda
@@ -124,7 +132,7 @@ const drop = () => {
     //  Lo que hay que mandar cada vez que cambie por socket :
  
     if (room == null) return
-    sendStage({stage:{stage:stage, username:userInfo.user},room:room})
+    sendStage({stage:{stage:stage, username:userInfo?.user},room:room})
   },[stage])
 
 
@@ -139,7 +147,7 @@ const drop = () => {
       <Stage stage={stage}  />
 
       <aside>
-      {isUserLogged ? <Display text1="User : " text2={userInfo.user}/>  : null}
+      {isUserLogged ? <Display text1="User : " text2={userInfo?.user}/>  : null}
         <Display text1="Time : " text2={timer}/>  
         <Display text1="Puntuacion : " text2={score}/>
         <Display text1="Lineas : " text2={rows}/>

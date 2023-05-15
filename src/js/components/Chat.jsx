@@ -41,8 +41,8 @@ const Chat = ({ room, messages, sendMessage }) => {
 
   return (
 
-    <div className="container-chat nes-container is-dark ">
-      <div className="input-button-styles ">
+    <div className="container-chat nes-container is-dark">
+      <div className="">
 
         <ul className="text-danger" id="chat-box">
           {messages.map((message, ind) => {

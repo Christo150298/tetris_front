@@ -11,7 +11,13 @@ body {
 }
 
 body * {
+  overflow-x: hidden;
   font-family: Unibody;
+}
+
+
+nav *{
+  overflow: unset;
 }
 
 .nav-item a{
@@ -73,29 +79,12 @@ body * {
 }
 
 
-.lobby-container {
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: repeat(4, 15vh);
-  grid-template-columns: repeat(2, 18vw);
-}
-
-.lobby-chat{
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-
-}
-
-.lobby-wraper{
-  display: flex;
-  justify-content: space-between;
-}
 
 
 .multiplayer-stage-container{
-  display:flex
+  display:flex;
+  overflow-x:scroll;
+  max-width: 100%;
 }
 .multiplayer-stage-container .tetris-stage{ 
   scale:65%
@@ -111,3 +100,4 @@ body * {
   width: 20%;
   margin-inline: auto;
 }
+

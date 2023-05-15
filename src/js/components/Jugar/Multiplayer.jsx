@@ -1,6 +1,4 @@
-
 import React, { useEffect, useMemo, useState } from "react";
-
 import Tetris from "../Tetris/Tetris.jsx";
 import Chat from "../Chat";
 import { useNavigate, useParams } from "react-router-dom";
@@ -65,9 +63,9 @@ const Multiplayer = () => {
 
     const stageList = useMemo(()=>{
         console.log(enemys)
-        const enemyStagesNames = enemys.filter(stageName => stageName !== userInfo.user)
+        const enemyStagesNames = enemys?.filter(stageName => stageName !== userInfo?.user)
         console.log(enemyStagesNames)
-        const enemyStages = enemyStagesNames.map(stageName =>  { 
+        const enemyStages = enemyStagesNames?.map(stageName =>  { 
             if( !remoteStages[stageName] ) return { stage:null , userName:stageName }
             return { stage:remoteStages[stageName] , userName:stageName }})
 
@@ -76,15 +74,15 @@ const Multiplayer = () => {
 
 
     return (
-        <div className="d-flex">
-            <div>
+        <div className="multiplayer-container">
+            <div className="my-auto">
                 <Tetris room={lobbyName} sendStage={sendStage}/>
             </div>
             <aside>
                 <div className="multiplayer-stage-container">
-                    {stageList.length
+                    {stageList?.length
                     ? stageList.map(stage => {
-                        return <Stage key={stage.userName} stage={stage.stage} />
+                        return <Stage key={stage?.userName} stage={stage?.stage} />
                     })
                     : <div className="d-block">
                         <div className="nes-container is-rounded is-dark">Esperando jugadores...</div> 
