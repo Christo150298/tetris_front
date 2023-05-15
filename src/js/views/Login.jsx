@@ -42,6 +42,22 @@ const Login = () => {
     return
   }
 
+
+  const handleLostPassword = async () => {
+    const body = {
+      email: userTextInputs["email"],
+    }
+
+    const response = await apiFetch("/api/login", "POST", body, false )
+
+    return
+  }
+
+
+
+
+
+
     return (
         <Form className="login-styles nes-container is-rounded is-dark col-5">
           <Form.Group className="m-3">
