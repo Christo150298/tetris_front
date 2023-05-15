@@ -48,11 +48,11 @@ const ModalGameOver = (props) => {
           <Dropdown.Toggle variant="dark" id="dropdown-basic">
             Compartir
           </Dropdown.Toggle>
-          <Dropdown.Menu className="d-flex ms-1">
-            <Dropdown.Item onClick={() => compartirPuntuacionFB()}>
+          <Dropdown.Menu className="d-flex ms-1 bg-primary">
+            <Dropdown.Item className="bg-primary" onClick={() => compartirPuntuacionFB()}>
               <UseAnimations animation={facebook} size={60} />
             </Dropdown.Item>
-            <Dropdown.Item href={`https://twitter.com/intent/tweet?text=${msg}&url=http://tetris-online.ddns.net/`} target="_blank">
+            <Dropdown.Item className="bg-primary" href={`https://twitter.com/intent/tweet?text=${msg}&url=http://tetris-online.ddns.net/`} target="_blank">
               <UseAnimations animation={twitter} size={60}/>
             </Dropdown.Item>
           </Dropdown.Menu>

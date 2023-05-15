@@ -5,7 +5,7 @@ import "../../styles/Tetris/pause.css"
 
 const PauseButton = (props) => {
     return(
-         <UseAnimations className="btn btn-dark" animation={playPause} size={50} onClick={props.handlePause}/>
+         <UseAnimations className="tetris-startbutton w-40" strokeColor="#fff" animation={playPause} size={80} onClick={props.handlePause}/>
     );
 };
 

@@ -6,7 +6,7 @@ import "../styles/jugar.css"
 
 const Jugar = () => {
     return(
-        <div className="jugar-styles container mt-4 gap-2">
+        <div className="jugar-styles container mt-5 gap-2">
             <div></div>
             <ButtonGroup vertical>
                 <Link to="/jugar/singleplayer">
