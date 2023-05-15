@@ -70,5 +70,5 @@ aside {
 }
 
 .nes-container *{
-    overflow-y: hidden;
+    overflow: hidden;
 }
