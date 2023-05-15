@@ -7,9 +7,13 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/007/278/160/small/polygon-geometric-design-abstract-technology-concept-abstract-blue-light-background-vector.jpg");
+  /* background-image: url("https://images.freeimages.com/vhq/images/istock/previews/9635/96351063-vector-seamless-pattern-with-yellow-honeycombs-honey-background.jpg"); */
+  background-image: url("https://t4.ftcdn.net/jpg/02/73/65/67/240_F_273656780_GfTvqB2pblw6V78O8FI09BxBqW75wuM3.jpg");
+  backdrop-filter: blur(1.1px) brightness(80%);
+  min-height: 100vh;
 }
-
+ /* https://t4.ftcdn.net/jpg/02/73/65/67/240_F_273656780_GfTvqB2pblw6V78O8FI09BxBqW75wuM3.jpg */
+ /* https://t4.ftcdn.net/jpg/03/96/31/07/240_F_396310714_BMztFGjlXpYWu6JWbXjXBR0q9jXvPZTQ.webp */
 body * {
   overflow-x: hidden;
   font-family: Unibody;

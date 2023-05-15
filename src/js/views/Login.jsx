@@ -32,6 +32,7 @@ const Login = () => {
 
     const response = await apiFetch("/api/login", "POST", body, false )
 
+    console.log(response)
     if(!response["token"]){ 
       alert(response["message"])
       return }
@@ -44,12 +45,17 @@ const Login = () => {
 
 
   const handleLostPassword = async () => {
+    console.log("Hola")
     const body = {
       email: userTextInputs["email"],
     }
+    const response = await apiFetch("/api/recover_password", "POST", body, false )
 
-    const response = await apiFetch("/api/login", "POST", body, false )
+    if(!response["token"]){ 
+      alert(response["message"])
+      return }
 
+    alert(response["message"])
     return
   }
 
@@ -78,9 +84,9 @@ const Login = () => {
           </Form.Group>
           <div className="col-12">
             <button type="button" onClick={handleLogin} className="nes-btn is-primary m-3">Iniciar sesion</button>
-            <a className="passwordForgot btn" href="http://">
+            <button type="button"  onClick={handleLostPassword} className="passwordForgot btn">
               ¿Olvidaste tu contraseña?
-            </a>
+            </button>
           </div>
         </Form>
       );
