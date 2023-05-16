@@ -1,17 +1,13 @@
 .jugar-styles {
     width: 65rem;
     height: 48rem;
-    background-image: url("https://as2.ftcdn.net/v2/jpg/04/95/09/71/1000_F_495097194_NwyNvctKjXVaL0Q96Qi77VKgfHzuFBm0.jpg");
+    background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700410361.jpg");
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
-button.btn.btn-dark{
-    border: 2px solid rgb(31, 23, 23);
-    width: 12rem;
-    height: 4rem;
-    border-radius: 5px;
-    font-size: large;
-    margin: 5px;
+.nes-radio.is-dark+span{
+    font-size: 25px;
+    color: #fff
 }

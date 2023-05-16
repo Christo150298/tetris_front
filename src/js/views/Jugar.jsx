@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button"
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import "../styles/jugar.css"
 
 const Jugar = () => {
     return(
         <div className="jugar-styles container mt-5 gap-2">
-            <div></div>
-            <ButtonGroup vertical>
+            <ButtonGroup>
                 <Link to="/jugar/singleplayer">
                     <label>
                         <button type="radio" className="nes-radio is-dark"></button>
@@ -17,7 +15,7 @@ const Jugar = () => {
                 </Link>
                 <Link to="/jugar/multiplayer">
                     <label>
-                        <button type="radio" class="nes-radio is-dark">Multiplayer</button>
+                        <button type="radio" className="nes-radio is-dark"></button>
                         <span>Multiplayer</span>
                     </label>
                 </Link>

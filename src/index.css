@@ -26,12 +26,12 @@ nav *{
 
 .nav-item a{
   text-decoration: none;
-  color: whitesmoke;
+  color: rgb(255, 255, 255);
   margin-inline: 8px;
 }
 
 .navbar-style{
-  background-color: #226D85  ;
+  background-color: #000000  ;
 }
 
 .container {
