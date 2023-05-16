@@ -11,14 +11,26 @@ body {
   background-image: url("https://t4.ftcdn.net/jpg/02/73/65/67/240_F_273656780_GfTvqB2pblw6V78O8FI09BxBqW75wuM3.jpg");
   backdrop-filter: blur(1.1px) brightness(80%);
   min-height: 100vh;
+  font-family: Unibody;
 }
  /* https://t4.ftcdn.net/jpg/02/73/65/67/240_F_273656780_GfTvqB2pblw6V78O8FI09BxBqW75wuM3.jpg */
  /* https://t4.ftcdn.net/jpg/03/96/31/07/240_F_396310714_BMztFGjlXpYWu6JWbXjXBR0q9jXvPZTQ.webp */
-body * {
-  overflow-x: hidden;
+
+body *{
   font-family: Unibody;
 }
 
+
+aside{
+  overflow-y: hidden;
+}
+
+div.multiplayer-chat-styles{
+  overflow: unset;
+}
+div.container-chat.nes-container.is-dark{
+  overflow: unset;
+}
 
 nav *{
   overflow: unset;
@@ -87,7 +99,7 @@ nav *{
 
 .multiplayer-stage-container{
   display:flex;
-  overflow-x:scroll;
+  /* overflow-x:scroll; */
   max-width: 100%;
 }
 .multiplayer-stage-container .tetris-stage{ 

@@ -18,10 +18,10 @@ const Chat = ({ room, messages, sendMessage }) => {
 
 
   const handleKeyDown = (e) => {
-    if (isUserLogged) return
-    if(e.key === "Enter") {
-      return handleSubmit()
-      };
+    if (!isUserLogged) return
+    if(e.key !== "Enter") return
+    return handleSubmit()
+ 
   };
 
   const handleSubmit = () => {
@@ -45,14 +45,14 @@ const Chat = ({ room, messages, sendMessage }) => {
       <div className="">
 
         <ul className="text-danger" id="chat-box">
-          {messages.map((message, ind) => {
+          {messages.map((message, ind) => { 
             return <li key={ind}><strong className="text-primary">{message.username} :</strong> {message.message}</li>;
           })}
         </ul>
 
         <footer className="d-flex">
           <input disabled={!isUserLogged} className="input-chat-styles" type="text" name="message" value={isUserLogged ? userTextInputs.message : "Inicia sesion para chatear" } onChange={handleTextChangeInputs} onKeyDown={handleKeyDown} />
-          <button disabled={!isUserLogged} className="bg-primary" type="button" onClick={handleSubmit} >ENVIAR</button>
+          <button disabled={!isUserLogged} className="bg-primary" type="button" onKeyDown={handleKeyDown} onClick={handleSubmit} >ENVIAR</button>
         </footer>
 
       </div>

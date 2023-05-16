@@ -20,11 +20,11 @@
     width: 100%;
 }
 
-ul#chat-box{
+/* ul#chat-box{
     position:relative;
     flex-direction: column;
     overflow-y: auto;
-}
+} */
 .input-chat-styles {
 
 

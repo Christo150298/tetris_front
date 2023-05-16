@@ -9,12 +9,13 @@ import "../../styles/Tetris/gameover.css"
 
 
 const ModalGameOver = (props) => {
+  console.log(process.env.REACT_APP_FACEBOOK_ID)
 
   const navigate = useNavigate()
 
     window.fbAsyncInit = function() {
       FB.init({
-        appId: process.env.REACT_APP_FACEBOOK_ID,
+        appId: "903036107656526",
         autoLogAppEvents: true,
         xfbml: true,
         version: 'v16.0'
