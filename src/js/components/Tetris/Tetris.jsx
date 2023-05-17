@@ -31,7 +31,7 @@ const Tetris = ({sendStage = null, room = null}) => {
     const {player, updatePlayerPos, resetPlayer, playerRotate, nextPieces} = usePlayer();
     //Estado de juego para ese jugador
     const {stage, setStage, rowsCleared} = useStage(player, resetPlayer);
-    const {score, setScore, rows, level, setLevel, time, handlePause,pause, handleResetTimer} = useGameStatus(rowsCleared);
+    const {refreshData, score, setScore, rows, level, setLevel, time, handlePause,pause, handleResetTimer} = useGameStatus(rowsCleared);
     const {store } = useAppContext()
     const { userInfo , isUserLogged } = store;
    //coje la direccion
@@ -44,19 +44,17 @@ const Tetris = ({sendStage = null, room = null}) => {
   
 //funcion para el boton de start
 const startGame = () => {
-  handleResetTimer();
   setStage(createStage());
   setDropTime(1000);
   resetPlayer();
   setGameOver(false);
-  setScore(0)
-  setLevel(0)
+  refreshData()
 };
 
 const drop = () => {
   if (pause) return
   // Increase level when player has cleared 10 rows
-  if (rows > (level + 1) * 10) {
+  if (rows > (level + 1) * 7) {
     setLevel(prev => prev + 1);
     // Also increase speed
     setDropTime(1000 / (level + 1) + 200);

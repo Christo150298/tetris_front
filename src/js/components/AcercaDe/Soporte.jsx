@@ -7,7 +7,7 @@ const Soporte = () => {
     const navigate = useNavigate()
 
     return(
-        <div className="soporte-styles nes-container is-dark col-8 mt-5">
+        <div className="soporte-styles nes-container is-dark mt-5 col-10">
             <h4 className="support-h3-styles">¿Hay algún inconveniente con la web?</h4>
             <p className="mt-4">
                 Si existe un fallo o hay algo que mejorarias en nuestra web no dudes en contactar con nosotros. Estamos abiertos

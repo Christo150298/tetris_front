@@ -31,8 +31,8 @@ input.lobby-name-input{
   
 .lobby-wraper{
     display: grid;
-    gap: 10px;
-    grid-template-rows: repeat(2,100%);
+    gap: 2%;
+    grid-template-rows: repeat(2,47%);
     grid-template-columns: repeat(1, 100%);
   
   }

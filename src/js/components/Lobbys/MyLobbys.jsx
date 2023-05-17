@@ -50,7 +50,7 @@ const Mylobbys = () =>{
     },[])
 
     return(
-        <div className="nes-container is-dark is-rounded w-75 mt-5">
+        <div className="nes-container is-dark is-rounded col-10 mt-5">
             <div className="lobby-wraper">
                 <div className="lobby-container">
                     

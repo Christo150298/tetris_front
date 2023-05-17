@@ -6,7 +6,7 @@ const JugarOnline = () => {
     const navigate = useNavigate()
 
     return(
-        <div className="nes-container col-8 is-dark with-title mt-5">
+        <div className="nes-container mt-5 col-10 is-dark with-title">
             <p className="title">Jugar Online</p>
             <p>
                 Jugar tetris online es una opcion muy real e inclusive la mas fuerte para disfrutar de una partida de este gran juego,

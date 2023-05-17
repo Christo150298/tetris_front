@@ -7,14 +7,30 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/007/278/160/small/polygon-geometric-design-abstract-technology-concept-abstract-blue-light-background-vector.jpg");
+  /* background-image: url("https://images.freeimages.com/vhq/images/istock/previews/9635/96351063-vector-seamless-pattern-with-yellow-honeycombs-honey-background.jpg"); */
+  background-image: url("https://t4.ftcdn.net/jpg/02/73/65/67/240_F_273656780_GfTvqB2pblw6V78O8FI09BxBqW75wuM3.jpg");
+  backdrop-filter: blur(1.1px) brightness(80%);
+  min-height: 100vh;
+  font-family: Unibody;
 }
+ /* https://t4.ftcdn.net/jpg/02/73/65/67/240_F_273656780_GfTvqB2pblw6V78O8FI09BxBqW75wuM3.jpg */
+ /* https://t4.ftcdn.net/jpg/03/96/31/07/240_F_396310714_BMztFGjlXpYWu6JWbXjXBR0q9jXvPZTQ.webp */
 
-body * {
-  overflow-x: hidden;
+body *{
   font-family: Unibody;
 }
 
+
+aside{
+  overflow-y: hidden;
+}
+
+div.multiplayer-chat-styles{
+  overflow: unset;
+}
+div.container-chat.nes-container.is-dark{
+  overflow: unset;
+}
 
 nav *{
   overflow: unset;
@@ -22,12 +38,12 @@ nav *{
 
 .nav-item a{
   text-decoration: none;
-  color: whitesmoke;
+  color: rgb(255, 255, 255);
   margin-inline: 8px;
 }
 
 .navbar-style{
-  background-color: #226D85  ;
+  background-color: #000000  ;
 }
 
 .container {
@@ -83,7 +99,7 @@ nav *{
 
 .multiplayer-stage-container{
   display:flex;
-  overflow-x:scroll;
+  /* overflow-x:scroll; */
   max-width: 100%;
 }
 .multiplayer-stage-container .tetris-stage{ 

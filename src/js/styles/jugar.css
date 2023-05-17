@@ -1,17 +1,13 @@
 .jugar-styles {
-    width: 55rem;
-    height: 38rem;
-    background-image: url("https://e1.pxfuel.com/desktop-wallpaper/1014/142/desktop-wallpaper-tetris-style-tetris.jpg");
+    width: 65rem;
+    height: 48rem;
+    background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700410361.jpg");
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
-button.btn.btn-dark{
-    border: 2px solid rgb(31, 23, 23);
-    width: 12rem;
-    height: 4rem;
-    border-radius: 5px;
-    font-size: large;
-    margin: 5px;
+.nes-radio.is-dark+span{
+    font-size: 25px;
+    color: #fff
 }
