@@ -7,7 +7,7 @@ const Instrucciones = () => {
     const navigate = useNavigate()
 
     return(
-        <div className="nes-container col-10 is-dark with-title d-flex mt-3">
+        <div className="nes-container mt-5 col-10 is-dark with-title d-flex ">
             <ul className="me-5"> 
                 <ol>
                     <h3 className="mb-4 mt-3">Instrucciones para jugar al Tetris:</h3>

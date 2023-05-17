@@ -21,7 +21,7 @@ const UserProfile = () => {
     },[isUserLogged])
 
     return (
-        <div className="nes-container col-8 is-dark is-rounded with-title mt-5 userProfile">
+        <div className="nes-container col-10 is-dark is-rounded with-title mt-5 userProfile">
             
             <span className="title">User Profile</span>
 

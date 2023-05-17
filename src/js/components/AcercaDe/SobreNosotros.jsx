@@ -7,7 +7,7 @@ const SobreNosotros = () => {
     const navigate = useNavigate()
 
     return(
-        <div className="nes-container col-10 is-dark mt-5">
+        <div className="nes-container mt-5 col-10 is-dark ">
             <h3 className="h3-styles d-flex justify-content-start">¿Quienes Somos?</h3>
             <p className="mt-3">
                 Tetris online nace de la idea de un estudiante de 4Geeks Academy que junto a un par de compañeros

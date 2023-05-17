@@ -7,7 +7,7 @@ const PreguntasFrecuentes = () => {
     const navigate = useNavigate()
 
     return(
-        <div className="nes-container col-8 is-dark mt-5">
+        <div className="nes-container mt-5 col-10 is-dark">
             <ul className="me-5">
                 <ol>
                     <h4 className="mb-4 mt-3">Preguntas frecuentes durante una partida</h4>

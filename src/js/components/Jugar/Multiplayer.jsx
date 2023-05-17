@@ -62,9 +62,7 @@ const Multiplayer = () => {
     },[])
 
     const stageList = useMemo(()=>{
-        console.log(enemys)
         const enemyStagesNames = enemys?.filter(stageName => stageName !== userInfo?.user)
-        console.log(enemyStagesNames)
         const enemyStages = enemyStagesNames?.map(stageName =>  { 
             if( !remoteStages[stageName] ) return { stage:null , userName:stageName }
             return { stage:remoteStages[stageName] , userName:stageName }})

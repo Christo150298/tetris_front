@@ -4,7 +4,7 @@ import "../styles/AcercaDe/acercaDe.css"
 
 const AcercaDe = () => {
     return(
-        <div className="indice-cont nes-container is-rounded is-dark col-6">
+        <div className="indice-cont nes-container is-rounded is-dark mt-5 col-10">
                 <ul>
                     <li>
                         <h2 className="mt-3">Indice</h2>

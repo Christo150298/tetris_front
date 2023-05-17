@@ -7,7 +7,7 @@ const QueEsTetris = () => {
     const navigate = useNavigate()
 
     return(
-        <div className="nes-container col-8 is-dark with-title mt-5">
+        <div className="nes-container mt-5 col-10 is-dark with-title">
             <p className="title">¿Qué es Tetris?</p>
             <p>
                 Tetris es el revolucionario juego que movilizó al mundo desde su distribución.
