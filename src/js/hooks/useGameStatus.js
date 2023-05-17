@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 export const useGameStatus = rowsCleared => {
   const [score, setScore] = useState(0);
   const [rows, setRows] = useState(0);
-  const [level, setLevel] = useState(0);
+  const [level, setLevel] = useState(1);
   const [time, setTime] = useState(0)
   const [pause ,setPause] = useState(true)
 
@@ -28,11 +28,18 @@ export const useGameStatus = rowsCleared => {
     setPause(false)
   }
 
+  const refreshData = () => {
+    setLevel(1)
+    setRows(0)
+    setScore(0)
+    handleResetTimer()
+  }
+
   const calcScore = useCallback(() => {
     // We have score
     if (rowsCleared > 0) {
       // This is how original Tetris score is calculated
-      setScore(prev => prev + linePoints[rowsCleared - 1] * (level + 1));
+      setScore(prev => prev + linePoints[rowsCleared - 1] * (level));
       setRows(prev => prev + rowsCleared);
     }
   }, [level, linePoints, rowsCleared]);
@@ -41,5 +48,5 @@ export const useGameStatus = rowsCleared => {
     calcScore();
   }, [ rowsCleared ]);
 
-  return {score, setScore, rows, setRows, level, setLevel, time, handlePause, pause , handleResetTimer};
+  return {score, setScore, rows, setRows, level, setLevel,refreshData, time, handlePause, pause , handleResetTimer};
 };

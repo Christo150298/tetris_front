@@ -7,7 +7,40 @@
     margin: auto;
     text-align: center;
     color: rgb(207, 78, 58);
-    border-radius: 3px
-};
+    border-radius: 3px;
+    font-size:1.5vh;
+    overflow: hidden;
+}
+.lobbys-styles button {
+    padding-block: 0.5vh;
+    margin: 0.5vh ;
+}
 
+input.lobby-name-input{
+    width: 100%;
+  }
+  
+.lobby-container {
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: repeat(2, 15vh);
+    grid-template-columns: repeat(4, 18vw);
+  }
+  
+  
+  
+.lobby-wraper{
+    display: grid;
+    gap: 2%;
+    grid-template-rows: repeat(2,47%);
+    grid-template-columns: repeat(1, 100%);
+  
+  }
 
+.multiplayer-container{
+    display: flex;
+    }
+    
+.multiplayer-container > div{
+      grid-column: minmax(832,50%);
+    }

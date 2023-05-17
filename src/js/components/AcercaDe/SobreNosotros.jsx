@@ -7,7 +7,7 @@ const SobreNosotros = () => {
     const navigate = useNavigate()
 
     return(
-        <div className="nes-container col-10 is-dark mt-5">
+        <div className="nes-container mt-5 col-10 is-dark ">
             <h3 className="h3-styles d-flex justify-content-start">¿Quienes Somos?</h3>
             <p className="mt-3">
                 Tetris online nace de la idea de un estudiante de 4Geeks Academy que junto a un par de compañeros
@@ -24,18 +24,6 @@ const SobreNosotros = () => {
                     </div>
                     <div>
                         <a href="https://github.com/stromcer" target="_blank" rel="noreferrer" aria-label="github">
-                            <i className="nes-icon github"></i>
-                        </a>
-                    </div>
-                </section>
-                <section className="nes-container is-dark member-card col-3">
-                    <div className="profile">
-                        <h5>
-                            Maria Isabel Valero
-                        </h5>
-                    </div>
-                    <div>
-                        <a href="https://github.com/meryvl" target="_blank" rel="noreferrer" aria-label="github">
                             <i className="nes-icon github"></i>
                         </a>
                     </div>

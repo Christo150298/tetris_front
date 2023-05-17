@@ -27,8 +27,7 @@ const SoundOptions = () => {
                 onChange={event => handleVolume(event.target.valueAsNumber)}
                 />
             </div>
-
-        </div>)
-}
+        </div>);
+};
 
 export default SoundOptions;

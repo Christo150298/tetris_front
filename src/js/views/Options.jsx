@@ -6,7 +6,7 @@ import Controls from "../components/Controls.jsx";
 
 const Options = () => {
   return (
-    <div className="nes-container with-title col-8 mt-5 is-dark is-rounded text-center p-3">
+    <div className="nes-container with-title col-10 mt-5 is-dark is-rounded text-center p-3">
       <span className="title"> OPCIONES </span>
 
       <div className="w-75 mx-auto">

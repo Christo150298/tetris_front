@@ -24,7 +24,7 @@ const ModalControls = ({ modalName, searchedKey, text }) => {
 
   return (
     <div className="col-6 text-center" onKeyDown={handlePressKey}>
-      <button onClick={()=>handleOpenModal(modalName)}>{buttonsMap[searchedKey].key}</button>
+      <button className="nes-btn is-primary" onClick={()=>handleOpenModal(modalName)}>{buttonsMap[searchedKey].key}</button>
 
       <Modal show={modalsShows[modalName]} onHide={()=>handleCloseModal(modalName)} > 
         <Modal.Title>

@@ -9,7 +9,6 @@
 }
 
 .chat-container {
-    
     flex: 1;
     display:flex;
     flex-direction: column;
@@ -21,12 +20,11 @@
     width: 100%;
 }
 
-ul#chat-box{
-    display:flex;
+/* ul#chat-box{
     position:relative;
     flex-direction: column;
     overflow-y: auto;
-}
+} */
 .input-chat-styles {
 
 
@@ -55,7 +53,14 @@ ul#chat-box {
 
 .multiplayer-chat-styles {
     display: flex;
-    margin-top: 22rem;
-    margin-left: 7.5rem;
+
 }
 
+
+nav{
+    background-color: #000000;
+    /* background: #6A1E0B;
+    background: -moz-linear-gradient(top, #6A1E0B 0%, #6A300D 50%, #6A4D0C 100%);
+    background: -webkit-linear-gradient(top, #6A1E0B 0%, #6A300D 50%, #6A4D0C 100%);
+    background: linear-gradient(to bottom, #6A1E0B 0%, #6A300D 50%, #6A4D0C 100%); */
+}

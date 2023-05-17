@@ -24,13 +24,13 @@ const Navbar = () => {
       <BootstrapNavbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto d-flex justify-content-between w-100">
           <div className="d-flex">
-            <Nav.Item>
+            <Nav.Item className="my-auto mx-2">
               <NavLink to="/jugar">Jugar</NavLink>
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className="my-auto mx-2">
               <NavLink to="/options">Opciones</NavLink>
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className="my-auto mx-2">
               <NavLink to="/acercaDe">Acerca De</NavLink>
             </Nav.Item>
           </div>
@@ -39,18 +39,18 @@ const Navbar = () => {
             {
               isUserLogged
               ? <>
-              <Nav.Item>
+              <Nav.Item className="my-auto mx-2">
                 <NavLink to="/usuario">MiPerfil</NavLink>
                </Nav.Item>
               <Nav.Item>
-                <button onClick={handleLogout}>Desconectarse</button>
+                <button className="nes-btn is-success" onClick={handleLogout}>Desconectarse</button>
               </Nav.Item>
               </>
               : <>
-              <Nav.Item>
+              <Nav.Item className="my-auto mx-2">
                 <NavLink to="/login">Iniciar sesion</NavLink>
               </Nav.Item>
-              <Nav.Item>
+              <Nav.Item className="my-auto mx-2">
                 <NavLink to="/registro">Registrarse</NavLink>
               </Nav.Item>
               </>

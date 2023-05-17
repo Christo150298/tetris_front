@@ -1,11 +1,11 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { TETROMINOS, randomTetromino } from "../components/Tetris/Tetrominos";
-import { STAGE_WIDTH } from "../utils/gameHelpers";
-import { checkCollision } from "../utils/gameHelpers";
+import { STAGE_WIDTH ,  checkCollision } from "../utils/gameHelpers";
 
 
 export const usePlayer=()=>{
 
+const [nextPieces, setNexpieces] = useState([])
 //Estado inicial del jugador
  const [player , setPlayer] = useState({
  pos: { x: 0, y: 0 },
@@ -55,15 +55,34 @@ collided, }))
 
 //se usa useColback para no entrar en un bucle infinito una vez usemos useinterval
 const resetPlayer = useCallback(() => {
-  setPlayer({
-    pos: { x: STAGE_WIDTH / 2 - 2, y: 0 },
-    tetromino: randomTetromino().shape,
-    collided: false,
-  });
-}, []);
 
-  return {player, updatePlayerPos, resetPlayer, playerRotate};
+  setNexpieces(prev => {
+    const [ firstPiece, ...remainingPieces ] = prev;
+
+    setPlayer({ 
+      pos: { x: STAGE_WIDTH / 2 - 2, y: 0 },
+      tetromino: firstPiece, 
+      collided: false,
+    });
+    
+    return remainingPieces
+   })
+  }, []);
+
+  useEffect(()=>{
+    for(let i = 1; i<3; i++ ){
+      if (nextPieces.length >= 4){break}
+      
+      setNexpieces(res => {  
+       const new_piece = randomTetromino().shape 
+       const newNextPieces = [...res, new_piece ]
+       return newNextPieces
+      })
+    }
+    console.log(nextPieces)
+   }
+  ,[player ])
+
+  return {player, updatePlayerPos, resetPlayer, playerRotate,nextPieces};
 }
-
-
 

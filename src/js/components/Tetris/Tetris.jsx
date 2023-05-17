@@ -1,22 +1,26 @@
 import React, {useEffect, useMemo, useState} from 'react';
+
 // Components
 import Stage from './Stage.jsx';
 import Display from './Display.jsx';
 import StartButton from './StartButton.jsx';
+import ModalGameOver from './ModalGameOver.jsx';
+import NextPieces from './NextPieces.jsx';
+import PauseButton from './PauseButton.jsx';
 import { checkCollision ,createStage} from '../../utils/gameHelpers';
 //Stylos componentes
 import "../../styles/Tetris/tetris.css"
 import "../../styles/Tetris/tetrominos.css"
-
-
+import apiFetch from '../../utils/apiFetch.js';
 //hooks
 import { usePlayer } from '../../hooks/usePlayer';
 import { useStage } from '../../hooks/useStage';
 import { useInterval } from '../../hooks/useInterval';
 import { useGameStatus } from '../../hooks/useGameStatus';
 import useControls from '../../hooks/useControls.js';
+import useAppContext from '../../store/context.js';
 
-const Tetris = () => {
+const Tetris = ({sendStage = null, room = null}) => {
     const {buttonsMap} = useControls();
     //tiempo de caida que dependerá del nivel que se encuentre el jugador
     const [dropTime , setDropTime] = useState(null);
@@ -24,12 +28,13 @@ const Tetris = () => {
     const [gameOver, setGameOver]= useState(false);
     
     //desestructuramos 
-    const {player, updatePlayerPos, resetPlayer, playerRotate} = usePlayer();
+    const {player, updatePlayerPos, resetPlayer, playerRotate, nextPieces} = usePlayer();
     //Estado de juego para ese jugador
     const {stage, setStage, rowsCleared} = useStage(player, resetPlayer);
-    const {score, setScore, rows, level, setLevel, time, handlePause,pause, handleResetTimer} = useGameStatus(rowsCleared);
-  
-  //coje la direccion
+    const {refreshData, score, setScore, rows, level, setLevel, time, handlePause,pause, handleResetTimer} = useGameStatus(rowsCleared);
+    const {store } = useAppContext()
+    const { userInfo , isUserLogged } = store;
+   //coje la direccion
   const movePlayer = dir => {
       //si no chocamos hace el movimiento y si es asi no hace nada
       if (!checkCollision(player, stage, { x:dir, y: 0})) {
@@ -39,19 +44,17 @@ const Tetris = () => {
   
 //funcion para el boton de start
 const startGame = () => {
-  handleResetTimer();
   setStage(createStage());
   setDropTime(1000);
   resetPlayer();
   setGameOver(false);
-  setScore(0)
-  setLevel(0)
+  refreshData()
 };
 
 const drop = () => {
   if (pause) return
   // Increase level when player has cleared 10 rows
-  if (rows > (level + 1) * 10) {
+  if (rows > (level + 1) * 7) {
     setLevel(prev => prev + 1);
     // Also increase speed
     setDropTime(1000 / (level + 1) + 200);
@@ -61,7 +64,7 @@ const drop = () => {
   } else {
     // Game Over
     if (player.pos.y < 1) {
-      console.log('GAME OVER!!!');
+
       setGameOver(true);
       setDropTime(null);
     }
@@ -82,11 +85,18 @@ const drop = () => {
 
     if (pause) return
     if (gameOver) {
-      console.log("game over")
       handlePause()
       // AQUI AÑADIR LOGICA PARA MANDAR EL RESULTADO AL SERVIDOR
       // console.log(score,timer,rows,level)
-      
+      const body = {
+        total_score:score,
+        time: timer,
+        reached_level:level,
+        broken_rows:rows      
+      }
+      if(score != 0){
+        apiFetch("/api/user/newscore","POST",body,true)
+      }
       return}
     if (keyCode === buttonsMap.moveLeftButton.keyCode) {
       movePlayer(-1); //mueve a la izquierda
@@ -118,17 +128,24 @@ const drop = () => {
 
   useEffect(()=>{
     //  Lo que hay que mandar cada vez que cambie por socket :
-    // console.log(stage)
+ 
+    if (room == null) return
+    sendStage({stage:{stage:stage, username:userInfo?.user},room:room})
   },[stage])
 
-  // console.log(stage) 
+
   return(
   <div className='tetris-container' role="button" tabIndex="0" onKeyDown={e=> move(e)} >
-
     <div className='tetris-app'>
+
+      <div>
+        <NextPieces nextPieces={nextPieces}/>
+        <PauseButton handlePause={handlePause} />
+      </div>
       <Stage stage={stage}  />
 
       <aside>
+      {isUserLogged ? <Display text1="User : " text2={userInfo?.user}/>  : null}
         <Display text1="Time : " text2={timer}/>  
         <Display text1="Puntuacion : " text2={score}/>
         <Display text1="Lineas : " text2={rows}/>
@@ -138,7 +155,12 @@ const drop = () => {
         <StartButton callback={startGame} />
 
       </aside>
-     
+      <ModalGameOver restart={startGame} show={gameOver} onHide={() => setGameOver(false)} onRestart={() => {
+
+          setGameOver(false);
+          }}
+          score={score}
+        />
     </div>
   </div>
   );
